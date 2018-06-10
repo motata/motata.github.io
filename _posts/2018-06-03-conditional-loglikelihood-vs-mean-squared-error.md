@@ -42,6 +42,8 @@ Now we add the assumption of Gaussian distribution
 
 $$ p(y|\bold{x}) = \mathcal{N}(y;\hat{y},\sigma^2) $$
 
+Then the sum of log term will become:
+
 $$
 \begin{aligned}
 \sum_{i=1}^n \log p(y^{(i)}|x^{(i)};\theta) = -n\log \sigma-\frac{n}{2}\log (2\pi)-\sum_{i=1}^n \frac{\lVert \hat{y}^{(i)}-y^{(i)}\rVert^2} {2\sigma^2}
