@@ -25,14 +25,18 @@ Consider a set of n examples $$X = {\bold{x}^{(1)}...\bold{x}^{(n)}}$$ drawn ind
 
 $$
 \begin{aligned}
-\theta_{ML} = \arg\max_\theta P(Y|X;\theta)\\
-Y-\text{all observed targets}
+\theta_{ML} = \arg\max_\theta P(Y|X;\theta)\text{,}\qquad\text{where Y is all observed targets}
 \end{aligned}
 $$
 
 If the examples are assumed to be i.i.d.(independently identically distributed), then this can be decomposed into 
 
-$$log$$
+$$
+\begin{aligned}
+  \theta_{ML} &= \arg\max_\theta\prod^n_{i=1}P(y^{(i)}|\bold{x}^{(i)};\theta)\\
+              &= \arg\max_\theta\sum_{i=1}^n \log P(y^{(i)}|x^{(i)};\theta)
+\end{aligned}
+$$
 
 Now we add the assumption of Gaussian distribution \$$djf$$:
 
