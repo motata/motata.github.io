@@ -36,7 +36,8 @@ $$
   \theta_{ML} &= \arg\max_\theta\prod^n_{i=1}P(y^{(i)}|\bold{x}^{(i)};\theta)\\
               &= \arg\max_\theta\sum_{i=1}^n \log P(y^{(i)}|x^{(i)};\theta)
 \end{aligned}
-$$ Now we add the assumption of Gaussian distribution $$p(y|\bold{x}) = \mathcal{N}(y;\hat{y},\sigma^2)$$
+$$ 
+Now we add the assumption of Gaussian distribution $$p(y|\bold{x}) = \mathcal{N}(y;\hat{y},\sigma^2)$$
 
 $$
 \begin{aligned}
