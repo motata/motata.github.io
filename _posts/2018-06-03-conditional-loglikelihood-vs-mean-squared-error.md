@@ -21,7 +21,7 @@ MSE_{ML} = \dfrac{1}{m}\begin{Vmatrix}\text{\^{y}}-y\end{Vmatrix}_2^2
 $$
 
 ## Conditional Log-Likelihood
-Consider a set of n examples $$X = {\bold{x}^{(1)}...\bold{x}^{(n)}}$$ drawn independently from the true but unknown data-generating distribution $$p_{data}(\bold{x})$$. The conditional log-likelihood estimator is:
+Consider a set of n examples $$X = \{\bold{x}^{(1)}...\bold{x}^{(n)}\}$$ drawn independently from the true but unknown data-generating distribution $$p_{data}(\bold{x})$$. The conditional log-likelihood estimator is:
 
 $$
 \begin{aligned}
@@ -38,12 +38,11 @@ $$
 \end{aligned}
 $$
 
-Now we add the assumption of Gaussian distribution $$p(y|\bold{x})=\mathcal{N}(y;\hat{y},\sigma^2)$$:
+Now we add the assumption of Gaussian distribution $$ p(y|\bold{x})=\mathcal{N}(y;\hat{y},\sigma^2) $$:
 
 $$
 \begin{aligned}
-\sum_{i=1}^n \log p(y^{(i)}|x^{(i)};\theta) \\
-= -n\log \sigma-\frac{n}{2}\log (2\pi)-\sum_{i=1}^n \frac{\lVert \hat{y}^{(i)-y^{(i)}}\rVert^2} {2\sigma^2}
+\sum_{i=1}^n \log p(y^{(i)}|x^{(i)};\theta) = -n\log \sigma-\frac{n}{2}\log (2\pi)-\sum_{i=1}^n \frac{\lVert \hat{y}^{(i)}-y^{(i)}\rVert^2} {2\sigma^2}
 \end{aligned}
 $$
 
