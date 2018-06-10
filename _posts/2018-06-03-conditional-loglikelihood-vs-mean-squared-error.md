@@ -1,7 +1,7 @@
 Conditional Log-Likelihood vs. Mean Squared Error
 =====
 
-For many machine learning problems, especially for supervised learning, the goal is to build a system that can take a vector \$$\bold{x} \in \mathbb{R}^m$$ as input and predict the value of a scalar \$$y \in \mathbb{R}$$ as its output.To solve such problems, we can follow the steps:
+For many machine learning problems, especially for supervised learning, the goal is to build a system that can take a vector $$x\in{R^m}$$ as input and predict the value of a scalar \$$y \in \mathbb{R}$$ as its output.To solve such problems, we can follow the steps:
 1. choose a model to predict a \$$\text{\^{y}}$$ when given an input x
 2. estimate the weights theta of the model theta = g(x)
     1. define the performance measure(also known as loss function or cost function)
