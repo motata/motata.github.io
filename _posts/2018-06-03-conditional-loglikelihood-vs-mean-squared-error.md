@@ -25,7 +25,7 @@ Consider a set of n examples $$X = {\bold{x}^{(1)}...\bold{x}^{(n)}}$$ drawn ind
 
 $$
 \begin{aligned}
-\theta_{ML} = \arg\max_\theta P(Y|X;\theta)\text{,}\qquad\text{where Y is all observed targets}
+\theta_{ML} = \arg\max_\theta P(Y|X;\theta)\text{,}\quad\text{\small{where Y is all observed targets}}
 \end{aligned}
 $$
 
@@ -38,9 +38,14 @@ $$
 \end{aligned}
 $$
 
-Now we add the assumption of Gaussian distribution \$$djf$$:
+Now we add the assumption of Gaussian distribution $$p(y|\bold{x})=\mathcal{N}(y;\hat{y},\sigma^2)$$:
 
-$$sum(logp(|)) = -mlogdelta -m/2..$$
+$$
+\begin{aligned}
+\sum_{i=1}^n \log p(y^{(i)}|x^{(i)};\theta) \\
+= -n\log \sigma-\frac{n}{2}\log (2\pi)-\sum_{i=1}^n \frac{\lVert \hat{y}^{(i)-y^{(i)}}\rVert^2} {2\sigma^2}
+\end{aligned}
+$$
 
 Comparing the log-likelihood with the mean squared error, we immediately see maximizing the log-likelihood with respect towyieldsthe same estimate of the parameterswas does minimizing the mean squared error.
 
