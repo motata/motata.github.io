@@ -25,9 +25,9 @@ Consider a set of n examples $$X = \{\bold{x}^{(1)}...\bold{x}^{(n)}\}$$ drawn i
 
 $$
 \begin{aligned}
-\theta_{ML} = \arg\max_\theta P(Y|X;\theta)\text{,}\quad\text{\small{where Y is all observed targets}}
+\theta_{ML} = \arg\max_\theta P(Y|X;\theta)
 \end{aligned}
-$$
+$$, where Y is all observed targets
 
 If the examples are assumed to be i.i.d.(independently identically distributed), then this can be decomposed into 
 
@@ -38,7 +38,9 @@ $$
 \end{aligned}
 $$ 
 
-Now we add the assumption of Gaussian distribution $$ p(y|\bold{x}) = \mathcal{N}(y;\hat{y},\sigma^2) $$
+Now we add the assumption of Gaussian distribution
+
+$$ p(y|\bold{x}) = \mathcal{N}(y;\hat{y},\sigma^2) $$
 
 $$
 \begin{aligned}
