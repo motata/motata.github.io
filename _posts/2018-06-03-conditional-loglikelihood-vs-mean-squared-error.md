@@ -47,7 +47,7 @@ $$
 \end{aligned}
 $$
 
-Comparing the log-likelihood with the mean squared error, we immediately see maximizing the log-likelihood with respect towyieldsthe same estimate of the parameterswas does minimizing the mean squared error.
+tComparing the log-likelihood with the mean squared error, we immediately see maximizing the log-likelihood with respect towyieldsthe same estimate of the parameterswas does minimizing the mean squared error.
 
 **KL divergence**
 
