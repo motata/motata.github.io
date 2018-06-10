@@ -21,11 +21,11 @@ MSE_{ML} = \dfrac{1}{m}\begin{Vmatrix}\text{\^{y}}-y\end{Vmatrix}_2^2
 $$
 
 ## Conditional Log-Likelihood
-Consider a set of n examples $$X = {\bold{x}^{(1)}...\bold{x}^{(n)}} drawn independently from the true but unknown data-generating distribution $$p_{data}(\bold{x}). The conditional log-likelihood estimator is:
+Consider a set of n examples $$X = {\bold{x}^{(1)}...\bold{x}^{(n)}}$$ drawn independently from the true but unknown data-generating distribution $$p_{data}(\bold{x})$$. The conditional log-likelihood estimator is:
 
 $$
 \begin{aligned}
-\theta_{ML} = \arg\max_\theta P(Y|X;\theta)
+\theta_{ML} = \arg\max_\theta P(Y|X;\theta)\;\text{,where }Y-\text{all observed targets}
 \end{aligned}
 $$
 
