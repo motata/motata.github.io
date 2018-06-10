@@ -25,7 +25,8 @@ Consider a set of n examples $$X = {\bold{x}^{(1)}...\bold{x}^{(n)}}$$ drawn ind
 
 $$
 \begin{aligned}
-\theta_{ML} = \arg\max_\theta P(Y|X;\theta)\;\text{,where }Y-\text{all observed targets}
+\theta_{ML} = \arg\max_\theta P(Y|X;\theta)
+Y-\text{all observed targets}
 \end{aligned}
 $$
 
