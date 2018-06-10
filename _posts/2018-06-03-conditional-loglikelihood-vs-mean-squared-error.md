@@ -38,8 +38,7 @@ $$
 \end{aligned}
 $$
 
-
-Now we add the assumption of Gaussian distribution $$p(y|\bold{x})=\mathcal{N}(y;\hat{y},\sigma^2)$$
+Now we add the assumption of Gaussian distribution $$p(y|\bold{x}) = \mathcal{N}(y;\hat{y},\sigma^2)$$ efe
 
 $$
 \begin{aligned}
@@ -47,7 +46,7 @@ $$
 \end{aligned}
 $$
 
-tComparing the log-likelihood with the mean squared error, we immediately see maximizing the log-likelihood with respect towyieldsthe same estimate of the parameterswas does minimizing the mean squared error.
+Comparing the log-likelihood with the mean squared error, we immediately see maximizing the log-likelihood with respect towyieldsthe same estimate of the parameterswas does minimizing the mean squared error.
 
 **KL divergence**
 
