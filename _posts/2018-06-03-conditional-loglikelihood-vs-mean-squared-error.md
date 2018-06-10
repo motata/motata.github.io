@@ -38,6 +38,7 @@ $$
 \end{aligned}
 $$
 
+
 Now we add the assumption of Gaussian distribution $$p(y|\bold{x})=\mathcal{N}(y;\hat{y},\sigma^2)$$
 
 $$
