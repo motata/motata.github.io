@@ -34,16 +34,15 @@ $$
 Consider the binary cross entropy loss:
 
 $$
-\begin{aligned}
 L_{CE}(p, p^*)=\begin{cases}-\log(p)&\text{if p^*=1}\\-\log(1-p)&\text{if p^*=0}\end{cases}
-\end{aligned}
 $$
 
 where $$p=sigmoid(x)$$. Then the gradient with regard to $$x$$:
 
-
 $$
+\begin{aligned}
 \begin{split}\dfrac{\partial{L_{CE}}}{\partial{x}}&=\begin{cases}1-p&\text{if }p^*=1\\p&\text{if } p^*=0\end{cases}\\&=p-p^*\end{split}
+\end{aligned}
 $$
 Then we can get the norm of gradient w.r.t $$x$$:
 
@@ -96,7 +95,7 @@ ASL_1(d)=\sqrt{d^2+\mu^2}-\mu
 \end{aligned}
 $$
 
-$$ASL_1$$ shares similar property with $$SL_1$$ while all the degrees of derivatives are existed and continuous. If we calculate the gradient of $$ASL_1$$ w.r.t d, we can get gradient norm:
+$$ASL_1$$ shares similar property with $$SL_1$$ while all the degrees of derivatives are existed and continuous. If we calculate the gradient of $$ASL_1$$ w.r.t $$d$$, we can get gradient norm:
 
 $$
 \begin{aligned}
@@ -132,7 +131,7 @@ l_\epsilon(g)=\min(g+\dfrac{\epsilon}{2},1)-\max(g-\dfrac{\epsilon}{2},0)
 \end{aligned}
 $$
 
-The gradient density of g denotes the number of examples lying in the region centered at $$g$$ with a length of $$\epsilon$$ and normalized by the valid length of the region.
+The gradient density of $$g$$ denotes the number of examples lying in the region centered at $$g$$ with a length of $$\epsilon$$ and normalized by the valid length of the region.
 
 ## Gradient Harmonizing Mechanism
 
@@ -140,7 +139,7 @@ With gradient density, we can define the gradient density harmonizing parameter 
 
 $$
 \begin{aligned}
-\beta_i=\dfrac{N}{GD(g_i)}
+	\beta_i=\dfrac{N}{GD(g_i)}
 \end{aligned}
 $$
 
