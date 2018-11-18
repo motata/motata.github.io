@@ -34,18 +34,20 @@ $$
 Consider the binary cross entropy loss:
 
 $$
+\begin{aligned}
 L_{CE}(p, p^*)=\begin{cases}-\log(p)&\text{if p^*=1}\\-\log(1-p)&\text{if p^*=0}\end{cases}
+\end{aligned}
 $$
 
 where $$p=sigmoid(x)$$. Then the gradient with regard to $$x$$:
 
 $$
 \begin{aligned}
-\begin{split}\dfrac{\partial{L_{CE}}}{\partial{x}}&=\begin{cases}1-p&\text{if }p^*=1\\p&\text{if } p^*=0\end{cases}\\&=p-p^*\end{split}
+\begin{split}\frac{\partial{L_{CE}}}{\partial{x}}&=\begin{cases}1-p&\text{if }p^*=1\\p&\text{if } p^*=0\end{cases}\\&=p-p^*\end{split}
 \end{aligned}
 $$
-Then we can get the norm of gradient w.r.t $$x$$:
 
+Then we can get the norm of gradient w.r.t $$x$$:
 
 $$
 \begin{aligned}
@@ -61,7 +63,7 @@ The figure above given by the paper shows the distribution of $$g$$ from a conve
 
 ### smooth $$L_1$$
 
-Assume we have parameterized offsets, $$t=(t_x, t_y, t_w, t_h)$$, predicted by box regression and the target offsets, $$t^{\*}=(t^{\*}_{x}, t^\*_y, t^\*_w, t^\*_h)$$, computed from ground-truth. The smooth $$L_1$$ loss is calculated as:
+Assume we have parameterized offsets, $$t=(t_x, t_y, t_w, t_h)$$, predicted by box regression and the target offsets, $$t^*=(t^*_{x}, t^*_y, t^*_w, t^*_h)$$, computed from ground-truth. The smooth $$L_1$$ loss is calculated as:
 
 $$
 \begin{aligned}
@@ -73,21 +75,21 @@ where
 
 $$
 \begin{aligned}
-SL_1(d)=\begin{cases}\dfrac{d^2}{2\delta}&\text{if }|d|<=\delta\\|d|-\dfrac{\delta}{2}&\text{otherwise}\end{cases}
+SL_1(d)=\begin{cases}\frac{d^2}{2\delta}&\text{if }|d|<=\delta\\|d|-\frac{\delta}{2}&\text{otherwise}\end{cases}
 \end{aligned}
 $$
 
 where $$\delta$$ is the division point between the quadric part and the linear part.
 
-Since $$d=t_i - t^*_i$$, the gradient of smooth $$L_1$$ loss w.r.t $$t_i$$ can be expressed as:
+Since $$d=t_i-t^*_i$$, the gradient of smooth $$L_1$$ loss w.r.t $$t_i$$ can be expressed as:
 
 $$
 \begin{aligned}
-\dfrac{\partial{SL_1}}{\partial{t_i}}=\dfrac{\partial{SL_1}}{\partial{d}}=\begin{cases}\dfrac{d}{\delta}&\text{if }|d|<=\delta\\sgn(d)&\text{otherwise}\end{cases}
+\dfrac{\partial{SL_1}}{\partial{t_i}}=\frac{\partial{SL_1}}{\partial{d}}=\begin{cases}\frac{d}{\delta}&\text{if }|d|<=\delta\\sgn(d)&\text{otherwise}\end{cases}
 \end{aligned}
 $$
 
-where $$sgn$$ is the sign function. That means all the examples wit $$|d|$$ larger than the division point have the same gradient norm $$\dfrac{\partial{SL_1}}{\partial{t_i}}=1$$, which makes the distinguishing of examples with different attributes impossible if depending on the gradient norm. Therefore the paper suggested a modified loss function called Authentic Smooth $$L_1$$($$ASL_1$$):
+where $$sgn$$ is the sign function. That means all the examples wit $$|d|$$ larger than the division point have the same gradient norm $$\frac{\partial{SL_1}}{\partial{t_i}}=1$$, which makes the distinguishing of examples with different attributes impossible if depending on the gradient norm. Therefore the paper suggested a modified loss function called Authentic Smooth $$L_1$$($$ASL_1$$):
 
 $$
 \begin{aligned}
@@ -99,7 +101,7 @@ $$ASL_1$$ shares similar property with $$SL_1$$ while all the degrees of derivat
 
 $$
 \begin{aligned}
-gr=|\dfrac{\partial{ASL_1}}{\partial{d}}|=|\dfrac{d}{\sqrt{d^2+\mu^2}}|
+gr=|\frac{\partial{ASL_1}}{\partial{d}}|=|\frac{d}{\sqrt{d^2+\mu^2}}|
 \end{aligned}
 $$
 
@@ -113,7 +115,7 @@ Gradient density function of training examples is formulated as:
 
 $$
 \begin{aligned}
-GD(g)=\dfrac{1}{l_\epsilon(g)}\sum^N_{k=1}\delta_\epsilon(g_k, g)
+GD(g)=\frac{1}{l_\epsilon(g)}\sum^N_{k=1}\delta_\epsilon(g_k, g)
 \end{aligned}
 $$
 
@@ -127,7 +129,7 @@ $$
 
 $$
 \begin{aligned}
-l_\epsilon(g)=\min(g+\dfrac{\epsilon}{2},1)-\max(g-\dfrac{\epsilon}{2},0)
+l_\epsilon(g)=\min(g+\frac{\epsilon}{2},1)-\max(g-\frac{\epsilon}{2},0)
 \end{aligned}
 $$
 
@@ -139,11 +141,11 @@ With gradient density, we can define the gradient density harmonizing parameter 
 
 $$
 \begin{aligned}
-	\beta_i=\dfrac{N}{GD(g_i)}
+	\beta_i=\frac{N}{GD(g_i)}
 \end{aligned}
 $$
 
-where $$N$$ is the total number of examples. Cos we are going to use it as a normalizer, we can rewrite it as $$\beta_i=\dfrac{1}{GD(g_i)/N}$$. The denominator is a normalizer indicating the fraction of examples with neighborhood gradients to the i-th example. If the examples are uniformly distributed with regard to gradient, $$GD(g_i)=N$$ for any $$g_i$$ and each example will have the same $$\beta_i=1$$, which means nothing is changed. Otherwise, the examples with large density will be relatively down-weighted by the normalizer. 
+where $$N$$ is the total number of examples. Cos we are going to use it as a normalizer, we can rewrite it as $$\beta_i=\frac{1}{GD(g_i)/N}$$. The denominator is a normalizer indicating the fraction of examples with neighborhood gradients to the i-th example. If the examples are uniformly distributed with regard to gradient, $$GD(g_i)=N$$ for any $$g_i$$ and each example will have the same $$\beta_i=1$$, which means nothing is changed. Otherwise, the examples with large density will be relatively down-weighted by the normalizer. 
 
 After calculating gradient density harmonizing parameter, we can get GHM losses by regarding $$\beta_i$$ as the loss weight of the i-th example.
 
@@ -151,7 +153,7 @@ We get GHM-C loss by embedding GHM into classification loss:
 
 $$
 \begin{aligned}
-\begin{split}L_{GHM-C}&=\dfrac{1}{N}\sum^N_{i=1}\beta_iL_{CE}(p_i, p^*_i)\\&=\sum^N_{i=1}\dfrac{L_{CE}(p_i,p^*_i)}{GD(g_i)}\end{split}
+\begin{split}L_{GHM-C}&=\frac{1}{N}\sum^N_{i=1}\beta_iL_{CE}(p_i, p^*_i)\\&=\sum^N_{i=1}\frac{L_{CE}(p_i,p^*_i)}{GD(g_i)}\end{split}
 \end{aligned}
 $$
 
@@ -159,7 +161,7 @@ And GHM-R loss by embedding GHM into regression loss:
 
 $$
 \begin{aligned}
-\begin{split}L_{GHM-R}&=\dfrac{1}{N}\sum^N_{i=1}\beta_iASL_{1}(d_i)\\&=\sum^N_{i=1}\dfrac{ASL_{1}(d_i)}{GD(gr_i)}\end{split}
+\begin{split}L_{GHM-R}&=\frac{1}{N}\sum^N_{i=1}\beta_iASL_{1}(d_i)\\&=\sum^N_{i=1}\frac{ASL_{1}(d_i)}{GD(gr_i)}\end{split}
 \end{aligned}
 $$
 
