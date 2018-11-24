@@ -15,9 +15,15 @@ G_{k,l,n}=\sum_{i,j,m}K_{i,j,m,n}\cdot F_{k+i-1,l+j-1,m}
 \end{aligned}
 $$
 
-where $$K$$ is a convolution kernel with size $$D_K\times{D_K}\times{M}\times{N}$$, $$D_K$$ is the spatial dimension of the kernel. That means there are $$M$$ channels of kernels, each of which will do a set of convolution multiplications with each of the $$M$$ feature map channels. Each convolution multiplication outputs one value. We can imagine it as a kernel sliding over the whole feature map channel and resulting an intermediate output feature channel. Do the same sliding on all $$M$$ channels separately, we get $$M$$ intermediate output feature channels. And with the resulted $$M$$ intermediate output feature channels, we do a pixelwise adding to get one finale output channel with the same spatial size as intermediate output feature channel. Because we have $$N$$ such kernels, we will get an $$N$$-channel output feature.
+where $$K$$ is a convolution kernel with size $$D_K\times{D_K}\times{M}\times{N}$$, $$D_K$$ is the spatial dimension of the kernel (as shown in the image below). That means there are $$M$$ channels of kernels, each of which will do a set of convolution multiplications with each of the $$M$$ feature map channels. Each convolution multiplication outputs one value. We can imagine it as a kernel sliding over the whole feature map channel and resulting an intermediate output feature channel. Do the same sliding on all $$M$$ channels separately, we get $$M$$ intermediate output feature channels. And with the resulted $$M$$ intermediate output feature channels, we do a pixelwise adding to get one finale output channel with the same spatial size as intermediate output feature channel. Because we have $$N$$ such kernels, we will get an $$N$$-channel output feature.
 
-Depthwise separable convolution are made up of two layers: depthwise convolutions and pointwise convolutions. In MobileNets paper, they use both batchnorm and ReLU for both layers. Depthwise convolution applies a single filter per input channel, the same as the first part in standard convolution. The output of depthwise convolution has the same dimensions as the intermediate output in standard convolution ($$D_F\times{D_F}\times{M}$$):
+![]({{ site.baseurl }}/assets/img/blog/2018-11-24-depthwise-separable-convolution/standard_convolution_filters.png)
+
+Depthwise separable convolution are made up of two layers: depthwise convolutions and pointwise convolutions. In MobileNets paper, they use both batchnorm and ReLU for both layers. Depthwise convolution applies a single filter per input channel, the same as the first part in standard convolution. The depthwise convolution filters are shown in the figure below.
+
+![]({{ site.baseurl }}/assets/img/blog/2018-11-24-depthwise-separable-convolution/depthwise_convolutional_filters.png)
+
+The output of depthwise convolution has the same dimensions as the intermediate output in standard convolution ($$D_F\times{D_F}\times{M}$$):
 
 $$
 \begin{aligned}
@@ -25,7 +31,9 @@ $$
 \end{aligned}
 $$
 
-But in depthwise separable convolution, we don't have $$N$$ such kernels, but only one instead. After that, the pointwise convolution is applied to combine the information across channels via $$1\times{1}$$ convolution. That means there are $$N$$ $$1\times{1}$$ convolution kernels, each of which has $$M$$ channels, so that the final output of the whole depthwise separable convolution block keeps the same as standard convolution.
+But in depthwise separable convolution, we don't have $$N$$ such kernels, but only one instead. After that, the pointwise convolution is applied to combine the information across channels via $$1\times{1}$$ convolution. That means there are $$N$$ $$1\times{1}$$ convolution kernels, each of which has $$M$$ channels (as shown in the figure below), so that the final output of the whole depthwise separable convolution block keeps the same as standard convolution.
+
+![]({{ site.baseurl }}/assets/img/blog/2018-11-24-depthwise-separable-convolution/pointwise_convolutional_filters.png)
 
 ## computational cost
 According to the standard convolution equation, we can see that the computational cost is:
