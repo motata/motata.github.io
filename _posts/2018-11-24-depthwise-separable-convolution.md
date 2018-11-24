@@ -1,4 +1,12 @@
+---
+layout: post
+title: Depthwise Separable Convolution
+description: >
+  This post introduces a neural network operation called depthwise separable convolution, which trades off between latency and accuracy.
+---
+\documentclass{article}
 \usepackage{listings}
+
 Depthwise separable convolution factorizes a standard convolution into a depthwise convolution and a pointwise convolution. Depthwise convolution captures spatial information of each feature map channel and pointwise convolution combines these information across all channels.
 
 Assume a square input feature and a square output feature. The spatial width and height of the feature map is $$D_F$$ and the number of input channels is $$M$$, then we have an input feature map $$F$$ with size $$D_F\times{D_F}\times{M}$$ to one network layer. $$D_G$$ is the spatial width and height of a output feature map and $$N$$ is the number of output channels. Then the output feature map $$G$$ has size $$D_G\times{D_G}\times{N}$$. In a standard convolution assuming square kernel, stride one and padding, the output feature is computed as:
@@ -7,7 +15,7 @@ $$
 \begin{equation}
 \begin{aligned}
 G_{k,l,n}=\sum_{i,j,m}K_{i,j,m,n}\cdot F_{k+i-1,l+j-1,m}
-\end{gather}
+\end{aligned}
 \end{equation}
 $$
 
@@ -27,27 +35,27 @@ But in depthwise separable convolution, we don't have $$N$$ such kernels, but on
 According to the standard convolution equation, we can see that the computational cost is:
 
 $$
-\begin{align}
+\begin{aligned}
 D_K\cdot D_K \cdot M \cdot N \cdot D_F \cdot D_F
-\end{align}
+\end{aligned}
 $$
 
 For depthwise separable convolution, the computational cost is:
 
 $$
-\begin{align}
+\begin{aligned}
 \begin{split}
 C_{separable} &= C_{depthwise} + C_{pointwise} \\&=D_K\cdot D_K \cdot M \cdot \cdot D_F \cdot D_F + M\cdot N \cdot D_F \cdot D_F
 \end{split}
-\end{align}
+\end{aligned}
 $$
 
 By expressing convolution as a two step process of filtering and combining we get a reduction in computation of:
 
 $$
-\begin{align}
+\begin{aligned}
 \frac{D_K\cdot D_k \cdot M \cdot D_F \cdot D_F + M\cdot N \cdot D_F \cdot D_F}{D_K \cdot D_K \cdot M \cdot N \cdot D_F \cdot D_F} = \frac{1}{N} + \frac{1}{D_K^2}
-\end{align}
+\end{aligned}
 $$
 
 With a $$3\times 3$$ convolution kernel, depthwise separable convolution uses 8 to 9 times less computation than standard convolution.
@@ -57,6 +65,8 @@ After understanding what depthwise separable convolution is doing, it's trivial 
 
 \lstset{language=Python}
 \lstset{frame=lines}
+\begin{document}
+
 \begin{lstlisting}
 def conv_dw(input_channel, output_channel, stride):
 	return nn.Sequential(
@@ -72,3 +82,4 @@ def conv_dw(input_channel, output_channel, stride):
 		nn.ReLU(inplace=True),
 	)
 \end{lstlisting}
+\end{document}
