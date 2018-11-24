@@ -93,7 +93,7 @@ $$
 \end{aligned}
 $$
 
-where $$sgn$$ is the sign function. That means all the examples with $$\|d\|$$ larger than the division point have the same gradient norm $$\frac{\partial{SL_1}}{\partial{t_i}}=1$$, which makes the distinguishing of examples with different attributes impossible if depending on the gradient norm. Therefore the paper suggested a modified loss function called Authentic Smooth $$L_1$$( $$ASL_1$$ ):
+where $$sgn$$ is the sign function. That means all the examples with $$\vert d\vert$$ larger than the division point have the same gradient norm $$\frac{\partial{SL_1}}{\partial{t_i}}=1$$, which makes the distinguishing of examples with different attributes impossible if depending on the gradient norm. Therefore the paper suggested a modified loss function called Authentic Smooth $$L_1$$( $$ASL_1$$ ):
 
 $$
 \begin{aligned}
@@ -169,7 +169,7 @@ L_{GHM-R}&=\frac{1}{N}\sum^N_{i=1}\beta_iASL_{1}(d_i)\\&=\sum^N_{i=1}\frac{ASL_{
 \end{aligned}
 $$
 
-The figures below are comparison among different classification and regression losses respectively. In classification figure, x-axis is the original gradient norm of CE, i.e. $$g=\|p-p^*\|$$. And y-axis is reformulated gradient norm of different loss functions in log scale.  In regression figure, x-axis adopts $$\|d\|$$ for convenient comparison.
+The figures below are comparison among different classification and regression losses respectively. In classification figure, x-axis is the original gradient norm of CE, i.e. $$g=\vert p-p^*\vert$$. And y-axis is reformulated gradient norm of different loss functions in log scale.  In regression figure, x-axis adopts $$\vert d\vert$$ for convenient comparison.
 
 ![]({{ site.baseurl }}/assets/img/blog/2018-11-17-gradient-harmonized-single-stage-detector/comparison_among_classification_losses.png){:data-width="349" data-height="249"}
 
