@@ -1,5 +1,9 @@
-Gradient Harmonized Single-stage Detector
-=====
+---
+layout: post
+title: Gradient Harmonized Single-stage Detector
+description: >
+  This post introduces the paper 'Gradient Harmonized Single-stage Detector', which tries to tackle hard example mining problem. In the end, we compare between GHM and Focal Loss.
+---
 
 This paper tries to handle the long-existing and well-known problems of one-stage detector: the imbalance between the number of positive and negative examples as well as that between easy and hard examples.
 
@@ -43,7 +47,7 @@ where $$p=sigmoid(x)$$. Then the gradient with regard to $$x$$:
 
 $$
 \begin{aligned}
-\begin{split}\frac{\partial{L_{CE}}}{\partial{x}}&=\begin{cases}1-p&\text{if }p^*=1\\p&\text{if } p^*=0\end{cases}\\&=p-p^*\end{split}
+\frac{\partial{L_{CE}}}{\partial{x}}&=\begin{cases}1-p&\text{if }p^*=1\\p&\text{if } p^*=0\end{cases}\\&=p-p^*
 \end{aligned}
 $$
 
@@ -89,7 +93,7 @@ $$
 \end{aligned}
 $$
 
-where $$sgn$$ is the sign function. That means all the examples wit $$|d|$$ larger than the division point have the same gradient norm $$\frac{\partial{SL_1}}{\partial{t_i}}=1$$, which makes the distinguishing of examples with different attributes impossible if depending on the gradient norm. Therefore the paper suggested a modified loss function called Authentic Smooth $$L_1$$($$ASL_1$$):
+where $$sgn$$ is the sign function. That means all the examples wit $$|d|$$ larger than the division point have the same gradient norm $$\frac{\partial{SL_1}}{\partial{t_i}}=1$$, which makes the distinguishing of examples with different attributes impossible if depending on the gradient norm. Therefore the paper suggested a modified loss function called Authentic Smooth $$L_1$$( $$ASL_1$$ ):
 
 $$
 \begin{aligned}
@@ -153,7 +157,7 @@ We get GHM-C loss by embedding GHM into classification loss:
 
 $$
 \begin{aligned}
-\begin{split}L_{GHM-C}&=\frac{1}{N}\sum^N_{i=1}\beta_iL_{CE}(p_i, p^*_i)\\&=\sum^N_{i=1}\frac{L_{CE}(p_i,p^*_i)}{GD(g_i)}\end{split}
+L_{GHM-C}&=\frac{1}{N}\sum^N_{i=1}\beta_iL_{CE}(p_i, p^*_i)\\&=\sum^N_{i=1}\frac{L_{CE}(p_i,p^*_i)}{GD(g_i)}
 \end{aligned}
 $$
 
@@ -161,13 +165,13 @@ And GHM-R loss by embedding GHM into regression loss:
 
 $$
 \begin{aligned}
-\begin{split}L_{GHM-R}&=\frac{1}{N}\sum^N_{i=1}\beta_iASL_{1}(d_i)\\&=\sum^N_{i=1}\frac{ASL_{1}(d_i)}{GD(gr_i)}\end{split}
+L_{GHM-R}&=\frac{1}{N}\sum^N_{i=1}\beta_iASL_{1}(d_i)\\&=\sum^N_{i=1}\frac{ASL_{1}(d_i)}{GD(gr_i)}
 \end{aligned}
 $$
 
 The figures below are comparison among different classification and regression losses respectively. In classification figure, x-axis is the original gradient norm of CE, i.e. $$g=|p-p^*|$$. And y-axis is reformulated gradient norm of different loss functions in log scale.  In regression figure, x-axis adopts $$|d|$$ for convenient comparison.
 
-<img src="/home/gaigai/Pictures/comparison_among_classification_losses.png" style="zoom:50%"/>
+![]("/home/gaigai/Pictures/comparison_among_classification_losses.png")
 
 
 
