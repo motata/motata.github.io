@@ -39,7 +39,7 @@ Consider the binary cross entropy loss:
 
 $$
 \begin{aligned}
-L_{CE}(p, p^*)=\begin{cases}-\log(p)&\text{if p^*=1}\\-\log(1-p)&\text{if p^*=0}\end{cases}
+L_{CE}(p, p^*)=\begin{cases} -\log(p)&\text{if }p^*=1\\-\log(1-p)&\text{if }p^*=0\end{cases}
 \end{aligned}
 $$
 
