@@ -93,7 +93,7 @@ $$
 \end{aligned}
 $$
 
-where $$sgn$$ is the sign function. That means all the examples wit $$|d|$$ larger than the division point have the same gradient norm $$\frac{\partial{SL_1}}{\partial{t_i}}=1$$, which makes the distinguishing of examples with different attributes impossible if depending on the gradient norm. Therefore the paper suggested a modified loss function called Authentic Smooth $$L_1$$( $$ASL_1$$ ):
+where $$sgn$$ is the sign function. That means all the examples with $$\|d\|$$ larger than the division point have the same gradient norm $$\frac{\partial{SL_1}}{\partial{t_i}}=1$$, which makes the distinguishing of examples with different attributes impossible if depending on the gradient norm. Therefore the paper suggested a modified loss function called Authentic Smooth $$L_1$$( $$ASL_1$$ ):
 
 $$
 \begin{aligned}
