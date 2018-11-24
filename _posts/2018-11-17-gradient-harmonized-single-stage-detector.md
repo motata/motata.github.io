@@ -61,7 +61,7 @@ $$
 
 The value of $$g$$ implies the example's impact on the global gradient. 
 
-<img src="/home/gaigai/Pictures/gradient_norm_distribution.png" style="zoom:70%"/>
+![]({{ site.baseurl }}/assets/img/blog/2018-11-17-gradient-harmonized-single-stage-detector/gradient_norm_distribution.png){:data-width="349" data-height="249"}
 
 The figure above given by the paper shows the distribution of $$g$$ from a converged one-stage detection model, where x-axis is gradient norm, and y-axis is number of samples in log scale. From the figure, we can see, that although easy examples have lower individual losses, with extremely large amount, they have probably much bigger impact on the global gradient than hard examples. Moreover, we can see that a converged model still can't handle some very hard examples whose number is even larger than the examples with medium difficulty. The paper views these as outliers since their gradient directions tends to vary largely from the gradient directions of the large amount of other examples and believes that being forced to learn from these examples might even harm the performance.
 
@@ -111,7 +111,7 @@ $$
 
 The figure below shows the distribution of gradient norm. It looks different with classification distribution with a large number of outliers. That's because regression is only preformed on positive examples.
 
-<img src="/home/gaigai/Pictures/ASL_gradient_norm_distribution.png" style="zoom:70%"/>
+![]({{ site.baseurl }}/assets/img/blog/2018-11-17-gradient-harmonized-single-stage-detector/ASL_gradient_norm_distribution.png){:data-width="349" data-height="249"}
 
 ## Gradient Density
 
@@ -171,11 +171,9 @@ $$
 
 The figures below are comparison among different classification and regression losses respectively. In classification figure, x-axis is the original gradient norm of CE, i.e. $$g=|p-p^*|$$. And y-axis is reformulated gradient norm of different loss functions in log scale.  In regression figure, x-axis adopts $$|d|$$ for convenient comparison.
 
-![]({{ site.baseurl }}/assets/img/blog/2018-11-17-gradient-harmonized-single-stage-detector/comparison_among_classification_losses.png)
+![]({{ site.baseurl }}/assets/img/blog/2018-11-17-gradient-harmonized-single-stage-detector/comparison_among_classification_losses.png){:data-width="349" data-height="249"}
 
-
-
-<img src="/home/gaigai/Pictures/comparison_among_regression_losses.png" style="zoom:50%"/>
+![]({{ site.baseurl }}/assets/img/blog/2018-11-17-gradient-harmonized-single-stage-detector/comparison_among_regression_losses.png){:data-width="349" data-height="249"}
 
 ## Discussion
 
