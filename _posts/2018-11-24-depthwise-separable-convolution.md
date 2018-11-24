@@ -4,8 +4,6 @@ title: Depthwise Separable Convolution
 description: >
   This post introduces a neural network operation called depthwise separable convolution, which trades off between latency and accuracy.
 ---
-\documentclass{article}
-\usepackage{listings}
 
 Depthwise separable convolution factorizes a standard convolution into a depthwise convolution and a pointwise convolution. Depthwise convolution captures spatial information of each feature map channel and pointwise convolution combines these information across all channels.
 
@@ -42,7 +40,7 @@ For depthwise separable convolution, the computational cost is:
 
 $$
 \begin{aligned}
-\begin{split}C_{separable} &= C_{depthwise} + C_{pointwise} \\&=D_K\cdot D_K \cdot M \cdot \cdot D_F \cdot D_F + M\cdot N \cdot D_F \cdot D_F\end{split}
+C_{separable} &= C_{depthwise} + C_{pointwise} \\&=D_K\cdot D_K \cdot M \cdot \cdot D_F \cdot D_F + M\cdot N \cdot D_F \cdot D_F
 \end{aligned}
 $$
 
@@ -59,11 +57,7 @@ With a $$3\times 3$$ convolution kernel, depthwise separable convolution uses 8 
 ## implementation in Pytorch
 After understanding what depthwise separable convolution is doing, it's trivial to write pytorch code for depthwise separable convolution block:
 
-\lstset{language=Python}
-\lstset{frame=lines}
-\begin{document}
-
-\begin{lstlisting}
+```python
 def conv_dw(input_channel, output_channel, stride):
 	return nn.Sequential(
 		# assume the kernel size is 3
@@ -77,5 +71,4 @@ def conv_dw(input_channel, output_channel, stride):
 		nn.BatchNorm2d(input_channel),
 		nn.ReLU(inplace=True),
 	)
-\end{lstlisting}
-\end{document}
+```
