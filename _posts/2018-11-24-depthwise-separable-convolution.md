@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Depthwise Separable Convolution
+comments: true
 description: >
   This post introduces a neural network operation called depthwise separable convolution, which trades off between latency and accuracy.
 ---

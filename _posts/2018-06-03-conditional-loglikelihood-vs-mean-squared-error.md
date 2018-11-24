@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Conditional Log-Likelihood vs. Mean Squared Error
+comments: true
 description: >
   This post introduces conditional log-likelihood and mean squared error and shows the relationship between these two performance measures.
 ---

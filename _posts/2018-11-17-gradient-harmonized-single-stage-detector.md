@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Gradient Harmonized Single-stage Detector
+comments: true
 description: >
   This post introduces the paper 'Gradient Harmonized Single-stage Detector', which tries to tackle hard example mining problem. In the end, we compare between GHM and Focal Loss.
 ---
