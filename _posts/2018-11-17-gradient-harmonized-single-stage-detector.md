@@ -169,7 +169,7 @@ L_{GHM-R}&=\frac{1}{N}\sum^N_{i=1}\beta_iASL_{1}(d_i)\\&=\sum^N_{i=1}\frac{ASL_{
 \end{aligned}
 $$
 
-The figures below are comparison among different classification and regression losses respectively. In classification figure, x-axis is the original gradient norm of CE, i.e. $$g=|p-p^*|$$. And y-axis is reformulated gradient norm of different loss functions in log scale.  In regression figure, x-axis adopts $$|d|$$ for convenient comparison.
+The figures below are comparison among different classification and regression losses respectively. In classification figure, x-axis is the original gradient norm of CE, i.e. $$g=\|p-p^*\|$$. And y-axis is reformulated gradient norm of different loss functions in log scale.  In regression figure, x-axis adopts $$|d|$$ for convenient comparison.
 
 ![]({{ site.baseurl }}/assets/img/blog/2018-11-17-gradient-harmonized-single-stage-detector/comparison_among_classification_losses.png){:data-width="349" data-height="249"}
 
