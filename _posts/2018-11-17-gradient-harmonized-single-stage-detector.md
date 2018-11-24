@@ -171,7 +171,7 @@ $$
 
 The figures below are comparison among different classification and regression losses respectively. In classification figure, x-axis is the original gradient norm of CE, i.e. $$g=|p-p^*|$$. And y-axis is reformulated gradient norm of different loss functions in log scale.  In regression figure, x-axis adopts $$|d|$$ for convenient comparison.
 
-![]("/home/gaigai/Pictures/comparison_among_classification_losses.png")
+![](/home/gaigai/Pictures/comparison_among_classification_losses.png)
 
 
 
