@@ -1,0 +1,45 @@
+There are four prerequisites to understand Eigenbasis, i.e. linear transformations, determinants, linear systems and change of basis. 
+
+### the meaning of eigenvector and eigenvalue
+
+The column space of a matrix can be seen as a new basis expressed in the original coordinate. For example, $$\begin{bmatrix}3 & 1 \ 0 & 2 \end{bmatrix}$$ represents a new basis with [3, 0] and [1, 2] being the new basis vector. And both of these two vectors are expressed in original coordinate. Then a vector [1, 1] in the new coordinate will be the same vector as [4, 2] in the original coordinate. 
+
+Multiplying by a matrix can be interpreted as a linear transformation, which transforms a vector from the original coordinate into a new coordinate represented by the matrix. Eigenvector is the vector in the space, which remains on its own span after linear transformation. For example, all vectors on x-axis still lie on x-axis after applying the linear transformation of $$\begin{bmatrix}3 & 1 \ 0 & 2 \end{bmatrix}$$. That means, all vectors on x-axis are eigenvectors of the matrix.
+
+Then let's look at the definition function of eigenvector and eigenvalue:
+$$
+Av = \lambda v
+$$
+From above, we can see that the left part of the equation results a vector with the same direction. That explains why a matrix-vector product equals to a scalar -vector multiplication. Then it's easy to understand, that eigenvalue is just a scalar that scales the length of the vector.
+
+
+
+### calculation of eigenvector and eigenvalue
+
+$$
+\lambda v = \begin{bmatrix}\lambda & 0 & 0 \\ 0 & \lambda & 0 \\ 0 & 0 & \lambda \end{bmatrix}v = \lambda Iv
+$$
+
+$$
+(A-\lambda I) v = 0
+$$
+
+To make sure the equation always valid for any &&v&&, &&det(A - \lambda I) = 0&&.
+
+* a transformation with determinant 0 squished the space into a lower dimension
+
+* eigenvalues which are complex numbers generally correspond to some kind of rotation in the transformation. For example, &&\begin{bmatrix}0 & -1 \ 1 & 0\end{bmatrix}&&
+
+* a single eigenvalue can have more that a line full of eigenvectors. For example, scaling everything by 2
+  $$
+  A = \begin{bmatrix}2 & 0 \\ 0 & 2 \end{bmatrix}
+  $$
+
+
+
+
+### Eigenbasis
+
+Eigenbasis means all basis vectors are eigenvectors. Before looking at eigenbasis, let's have a look at diagonal matrix first.
+
+Diagonal matrix 
