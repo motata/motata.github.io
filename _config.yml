@@ -99,6 +99,12 @@ disqus:                motata
 # Setting a tinyletter username will enable the newsletter subscription box.
 # tinyletter:            <tinyletter_username>
 
+defaults:
+	- scope:
+		type: posts
+	  values:
+	  	comments: true
+
 # Hydejack Settings
 # ----------------------------------------------------------------------------------------
 # These settings are specific to Hydejack.
