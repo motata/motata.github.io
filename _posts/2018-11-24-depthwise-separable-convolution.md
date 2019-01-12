@@ -3,7 +3,7 @@ layout: post
 title: Depthwise Separable Convolution
 comments: true
 description: >
-  This post introduces a neural network operation called depthwise separable convolution, which trades off between latency and accuracy.
+  This post explains a neural network operation called depthwise separable convolution, which trades off between latency and accuracy.
 ---
 
 Depthwise separable convolution factorizes a standard convolution into a depthwise convolution and a pointwise convolution. Depthwise convolution captures spatial information of each feature map channel and pointwise convolution combines these information across all channels.
