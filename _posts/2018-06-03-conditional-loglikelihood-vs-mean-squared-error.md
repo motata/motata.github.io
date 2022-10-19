@@ -85,7 +85,7 @@ $$
 \end{aligned}
 $$
 
-Now let's look back to the MLE. Because the arg max does not change when we rescale the cost function, we can divide the MLE function by n to obtain a version o f the criterion that is expressed as an expectation with respect to the empirical distribution $$p_{data}$$ defined by the training data:
+Now let's look back to the MLE. Because the arg max does not change when we rescale the cost function, we can divide the MLE function by n to obtain a version of the criterion that is expressed as an expectation with respect to the empirical distribution $$p_{data}$$ defined by the training data:
 
 $$
 \begin{aligned}
